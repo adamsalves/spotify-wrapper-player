@@ -1,16 +1,19 @@
 import spotify from '../src/Spotify'
 import renderAlbums from './AlbumList'
 import renderAlbumInfo from './AlbumInfo'
+import renderAlbumTracks from './AlbumTracks'
 
 const albums = spotify.search.albums('Incubus');
 const albumsList = document.getElementById('album-list');
 
-const album = spotify.album.getAlbum('6peEdPVO73WtgGah5sEhX4');
+const album = spotify.album.getAlbum('2i6nd4FV6y7K9fln6eelmR');
 const albumInfo = document.getElementById('album-info');
+const albumTracks = document.getElementById('album-tracks');
 
 
-albums.
-  then(data => renderAlbums(data.albums.items, albumsList));
+albums
+  .then(data => renderAlbums(data.albums.items, albumsList));
 
-album.
-  then(data => renderAlbumInfo(data, albumInfo));
+album
+  .then(data => renderAlbumInfo(data, albumInfo))
+  .then(data => renderAlbumTracks(data.tracks.items, albumTracks));
