@@ -30,6 +30,9 @@ describe('AlbumsList', () => {
       } ],
       "name" : "The Essential Incubus",
       "type" : "album",
+      "tracks": {
+        "total": 18
+      }
     }
   ];
 
