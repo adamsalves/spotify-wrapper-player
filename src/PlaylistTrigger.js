@@ -19,10 +19,11 @@ export default function playlistTrigger() {
       audioObject.addEventListener('ended', () => {
         target.classList.remove('active');
       });
-
-      audioObject.addEventListener('pause', () => {
-        target.classList.remove('active');
-      });
+      setTimeout(() => {
+        audioObject.addEventListener('pause', () => {
+          target.classList.remove('active');
+        });
+      }, 500)
     }
   });
 }
